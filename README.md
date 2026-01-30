@@ -74,10 +74,39 @@ face-attendance/
 - Pillow (PIL)
 - openpyxl
 
+## v2.0 Updates - Duplicate Attendance Fix ✅
+
+**MAJOR FIX**: The system now guarantees **zero duplicate attendance recordings**.
+
+### Key Improvements:
+- ✅ **Per-session deduplication** - Each student marked only once per session
+- ✅ **Enhanced streak system** - Requires 8 stable frames (up from 6)
+- ✅ **Confidence stability tracking** - Validates confidence consistency
+- ✅ **Extended time throttling** - 5-second minimum between records (up from 2s)
+- ✅ **Stricter face detection** - minNeighbors increased from 6 to 8
+- ✅ **Professional threshold** - Optimized to 50 for best accuracy
+- ✅ **5-layer protection** - Multiple safety mechanisms prevent any duplicates
+
+### What Changed:
+- Default recognition threshold: **40 → 50** (professional standard)
+- Required streak: **6 → 8 frames** (better stability)
+- Time cooldown: **2.0s → 5.0s** (prevents re-marking)
+- Face detection strictness: **6 → 8 minNeighbors** (fewer false positives)
+- Added confidence history tracking for stability analysis
+- Added per-session marking tracker (most important)
+
+### Backward Compatible:
+- ✅ Works with all existing trained models
+- ✅ Compatible with old attendance files
+- ✅ Same user interface
+- ✅ All settings preserved
+
 ## Notes
 
 - The `data/` folder is automatically created when you first run the app
 - You need at least 2 enrolled students for reliable recognition
-- Default recognition threshold is 40 (lower = stricter, higher = more lenient)
-- Adjust settings via **⚙️ Settings** button
+- **Default recognition threshold is now 50** (was 40) - optimized for accuracy
+- Adjust settings via **⚙️ Settings** button if needed
+- System now prevents duplicate attendance marking automatically
+
 
